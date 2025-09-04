@@ -1,0 +1,33 @@
+# public/.htaccess
+# Security + helpful defaults if you’re serving via Apache.
+
+# Use UTF-8 by default
+AddDefaultCharset utf-8
+
+# Prevent directory listings
+Options -Indexes
+
+# Cache static assets for a bit (adjust as you like)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/gif "access plus 30 days"
+</IfModule>
+
+# Protect sensitive files
+<FilesMatch "^(config\.php|db\.php|auth\.php|helpers\.php|middleware\.php|csrf\.php)$">
+  Require all denied
+</FilesMatch>
+
+# Basic security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "no-referrer-when-downgrade"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
