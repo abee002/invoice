@@ -148,12 +148,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .btn-icon{padding:6px 10px}
   </style>
   <script>
+    let rowIndex = 0;
     function addRow() {
+      const idx = rowIndex++;
       const tbody = document.getElementById('items');
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>
-          <select name="item[][product_id]" onchange="fillFromProduct(this)">
+          <select name="item[${idx}][product_id]" onchange="fillFromProduct(this)">
             <option value="">— free text —</option>
             <?php foreach ($products as $p): ?>
               <option value="<?=$p['id']?>"
@@ -163,10 +165,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endforeach; ?>
           </select>
         </td>
-        <td><input name="item[][description]" class="desc" placeholder="Description" required></td>
-        <td><input name="item[][qty]" type="number" step="0.01" min="0.01" class="qty" required></td>
-        <td><input name="item[][unit_price]" type="number" step="0.01" min="0" class="price" required></td>
-        <td><input name="item[][tax_rate]" type="number" step="0.01" min="0" class="tax"></td>
+        <td><input name="item[${idx}][description]" class="desc" placeholder="Description" required></td>
+        <td><input name="item[${idx}][qty]" type="number" step="0.01" min="0.01" class="qty" required></td>
+        <td><input name="item[${idx}][unit_price]" type="number" step="0.01" min="0" class="price" required></td>
+        <td><input name="item[${idx}][tax_rate]" type="number" step="0.01" min="0" class="tax"></td>
         <td class="r"><button type="button" class="btn btn-icon" onclick="this.closest('tr').remove()">✕</button></td>
       `;
       tbody.appendChild(tr);

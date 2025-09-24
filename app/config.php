@@ -10,7 +10,7 @@ return [
     'port'    => '3306',
     'name'    => 'invoice_app',
     'user'    => 'root',
-    'pass'    => '',             // ← set your MySQL password
+    'pass'    => '1234',             // ← set your MySQL password
     'charset' => 'utf8mb4',
   ],
 
@@ -19,7 +19,7 @@ return [
     // If you serve from: http://localhost/invoice-app/public
     // keep base_url as below. If you serve from domain root (/),
     // set base_url to '' or '/'.
-    'base_url'       => '/invoice-app/public',
+    'base_url'       => '',
 
     // Default company meta shown on dashboard/print
     'company_name'   => 'Your Company (Pvt) Ltd',

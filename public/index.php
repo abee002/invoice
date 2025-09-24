@@ -16,7 +16,6 @@ $st->execute([$uid]);
 $settings = $st->fetch() ?: ['display_name'=>$_SESSION['user']['username'] ?? 'User', 'address'=>'', 'phone'=>'', 'logo_path'=>''];
 
 // Stats
-$pending = (int)$pdo->prepare("SELECT COUNT(*) AS c FROM invoices WHERE owner_id=? AND status='pending'");
 $pdo->query("SET SESSION sql_mode='STRICT_TRANS_TABLES'"); // ensure strict
 $cnt = $pdo->prepare("SELECT 
   SUM(status='pending')    AS pending_count,
