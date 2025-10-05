@@ -107,9 +107,13 @@ $recent = $q->fetchAll();
       </div>
       <div class="card">
         <h2>Quick Actions</h2>
-        <div>
-          <a class="btn" href="<?=htmlspecialchars($base)?>/invoices/create.php">+ Create Invoice</a>
-          <a class="btn" href="<?=htmlspecialchars($base)?>/customers/create.php" style="margin-left:6px;">+ Add Customer</a>
+        <div class="quick-actions">
+          <a class="btn create-invoice" href="<?=htmlspecialchars($base)?>/invoices/create.php">
+            <span>Create Invoice</span>
+          </a>
+          <a class="btn add-customer" href="<?=htmlspecialchars($base)?>/customers/create.php">
+            <span> Add Customer</span>
+          </a>
         </div>
       </div>
     </div>

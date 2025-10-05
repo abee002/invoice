@@ -85,6 +85,76 @@
   .btn.danger{background:#b91c1c}
   .btn.success{background:#15803d}
   
+  /* Quick Actions specific styling */
+  .quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .quick-actions .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-height: 44px;
+    gap: 8px;
+  }
+  
+  .quick-actions .btn::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .quick-actions .btn.create-invoice::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z'/%3E%3Cpath d='M14 2v6h6'/%3E%3Cpath d='M16 13H8'/%3E%3Cpath d='M16 17H8'/%3E%3Cpath d='M10 9H8'/%3E%3C/svg%3E");
+  }
+  
+  .quick-actions .btn.add-customer::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M19 8v6'/%3E%3Cpath d='M22 11h-6'/%3E%3C/svg%3E");
+  }
+  
+  .quick-actions .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+  
+  .quick-actions .btn:active {
+    transform: translateY(0);
+  }
+  
+  .quick-actions .btn.create-invoice {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border: 1px solid #3b82f6;
+  }
+  
+  .quick-actions .btn.add-customer {
+    background: linear-gradient(135deg, #059669, #047857);
+    border: 1px solid #10b981;
+  }
+  
+  .quick-actions .btn.add-customer:hover {
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  }
+  
+  @media (min-width: 640px) {
+    .quick-actions {
+      flex-direction: row;
+      gap: 12px;
+    }
+    
+    .quick-actions .btn {
+      flex: 1;
+    }
+  }
+  
   /* Inputs focus */
   input:focus,select:focus,textarea:focus{
     outline:none;border-color:#3b82f6;box-shadow:0 0 0 2px rgba(59,130,246,.25);
