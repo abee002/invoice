@@ -140,3 +140,5 @@ invoice-app/
 
 Happy building!  
 Next file to paste: **`public/index.php`** (dashboard with quick stats + shortcuts).
+
+run :-   php -S localhost:8000 -t public
